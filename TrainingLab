@@ -1,0 +1,15 @@
+using System;
+
+class Program 
+{
+    public static void Main(string[] args)
+    {
+        double length = double.Parse(Console.ReadLine());
+        double width = double.Parse(Console.ReadLine());
+        double desksInRow = Math.Floor((width * 100 - 100) / 70);
+        double columnsSeatingArrangement = Math.Floor(length * 100 / 120);          
+        double desks = (desksInRow * columnsSeatingArrangement) - 3;
+        Console.WriteLine(Math.Floor(desks)); 
+        
+    }
+}
