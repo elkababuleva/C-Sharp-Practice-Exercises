@@ -48,10 +48,10 @@ namespace _03.Pirates
                 commandOne = Console.ReadLine();
             }
 
-            string CommandTwe = Console.ReadLine();
-            while (CommandTwe != "End")
+            string CommandTwo = Console.ReadLine();
+            while (CommandTwo != "End")
             {
-                string[] commandArgs = CommandTwe.Split("=>");
+                string[] commandArgs = CommandTwo.Split("=>");
                 string action = commandArgs[0];
 
                 if (action == "Plunder")
@@ -85,7 +85,7 @@ namespace _03.Pirates
                     }
                 }
 
-                CommandTwe = Console.ReadLine();
+                CommandTwo = Console.ReadLine();
             }
 
             if (pirates.Count > 0)
