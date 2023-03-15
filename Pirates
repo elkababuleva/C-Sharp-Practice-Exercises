@@ -93,8 +93,8 @@ namespace _03.Pirates
                 Console.WriteLine($"Ahoy, Captain! There are {pirates.Count} wealthy settlements to go to:");
                 foreach (var item in pirates)
                 {
-                    var city = item.Value;
-                    Console.WriteLine($"{city.Name} -> Population: {city.Population} citizens, Gold: {city.Gold} kg");
+                    var town = item.Value;
+                    Console.WriteLine($"{town.Name} -> Population: {town.Population} citizens, Gold: {town.Gold} kg");
                 }
             }
             else
