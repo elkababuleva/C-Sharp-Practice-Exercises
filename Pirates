@@ -24,7 +24,7 @@ namespace _03.Pirates
     {
         static void Main(string[] args)
         {
-            Dictionary<string, City> pirates = new Dictionary<string, City>();
+            Dictionary<string, City> settlements = new Dictionary<string, City>();
             string commandOne = Console.ReadLine();
 
             while (commandOne != "Sail")
@@ -33,16 +33,14 @@ namespace _03.Pirates
                 string town = commandArgs[0];
                 int population = int.Parse(commandArgs[1]);
                 int gold = int.Parse(commandArgs[2]);
-                if (!pirates.ContainsKey(town))
+                if (!settlements.ContainsKey(town))
                 {
-                    pirates.Add(town, new City(town, population, gold));
+                    settlements.Add(town, new City(town, population, gold));
                 }
                 else
                 {
-                    pirates[town].Population += population;
-                    pirates[town].Gold += gold;
-
-
+                    settlements[town].Population += population;
+                    settlements[town].Gold += gold;
                 }
 
                 commandOne = Console.ReadLine();
@@ -60,14 +58,14 @@ namespace _03.Pirates
                     int population = int.Parse(commandArgs[2]);
                     int gold = int.Parse(commandArgs[3]);
 
-                    pirates[town].Population -= population;
-                    pirates[town].Gold -= gold;
+                    settlements[town].Population -= population;
+                    settlements[town].Gold -= gold;
                     Console.WriteLine($"{town} plundered! {gold} gold stolen, {population} citizens killed.");
 
-                    if (pirates[town].Population == 0 || pirates[town].Gold == 0)
+                    if (settlements[town].Population == 0 || settlements[town].Gold == 0)
                     {
                         Console.WriteLine($"{town} has been wiped off the map!");
-                        pirates.Remove(town);
+                        settlements.Remove(town);
                     }
                 }
                 else if (action == "Prosper")
@@ -80,18 +78,18 @@ namespace _03.Pirates
                     }
                     else
                     {
-                        pirates[town].Gold += gold;
-                        Console.WriteLine($"{gold} gold added to the city treasury. {town} now has {pirates[town].Gold} gold.");
+                        settlements[town].Gold += gold;
+                        Console.WriteLine($"{gold} gold added to the city treasury. {town} now has {settlements[town].Gold} gold.");
                     }
                 }
 
                 CommandTwo = Console.ReadLine();
             }
 
-            if (pirates.Count > 0)
+            if (settlements.Count > 0)
             {
-                Console.WriteLine($"Ahoy, Captain! There are {pirates.Count} wealthy settlements to go to:");
-                foreach (var item in pirates)
+                Console.WriteLine($"Ahoy, Captain! There are {settlements.Count} wealthy settlements to go to:");
+                foreach (var item in settlements)
                 {
                     var town = item.Value;
                     Console.WriteLine($"{town.Name} -> Population: {town.Population} citizens, Gold: {town.Gold} kg");
